@@ -8,7 +8,7 @@ import (
 // node es el nodo de la lista enlazada
 // contiene un valor y un puntero al siguiente nodo
 // el valor es de tipo genérico, comparable
-type node[T comparable] struct {
+type node[T any] struct {
 	value T
 	next  *node[T]
 }
