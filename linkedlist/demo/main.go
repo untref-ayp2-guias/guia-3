@@ -41,11 +41,5 @@ func main() {
 	l.InsertAt(2, 2)
 
 	fmt.Println(l)
-	fmt.Println("Iteramos la lista...")
-	iter := l.Iter()
-	for iter.HasNext() {
-		elemento, _ := iter.Next()
-		fmt.Println(elemento)
-	}
 
 }

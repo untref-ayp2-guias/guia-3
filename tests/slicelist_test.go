@@ -4,12 +4,12 @@ package tests
 
 import (
 	"fmt"
-	"guia3/linkedlist"
+	"guia3/slicelist"
 	"testing"
 )
 
 func TestInsert(t *testing.T) {
-	list := linkedlist.NewLinkedList[int]()
+	list := slicelist.NewSliceList[int]()
 	list.Append(1)
 	list.Append(2)
 	list.Append(3)
@@ -29,7 +29,7 @@ func TestInsert(t *testing.T) {
 }
 
 func TestDelete(t *testing.T) {
-	list := linkedlist.NewLinkedList[int]()
+	list := slicelist.NewSliceList[int]()
 	list.Append(0)
 	list.Append(1)
 	list.Append(2)

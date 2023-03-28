@@ -29,11 +29,16 @@ type LinkedList[T comparable] struct {
 }
 
 // NewLinkedList crea una nueva lista enlazada, vacía
+// En nuestra implementación representamos la lista vacía
+// con un puntero al primer nodo en nil
+// y un puntero al último nodo en nil
+// O(1)
 func NewLinkedList[T comparable]() *LinkedList[T] {
 	return &LinkedList[T]{head: nil, tail: nil}
 }
 
 // Append agrega un nuevo nodo, con el valor recibido, al final de la lista
+// O(1)
 func (l *LinkedList[T]) Append(value T) {
 	newNode := newNode(value)
 	if l.head == nil {
@@ -47,6 +52,7 @@ func (l *LinkedList[T]) Append(value T) {
 
 // Prepend agrega un nuevo nodo, con el valor recibido,
 // al inicio de la lista
+// O(1)
 func (l *LinkedList[T]) Prepend(value T) {
 	newNode := newNode(value)
 	if l.head == nil {
@@ -61,6 +67,7 @@ func (l *LinkedList[T]) Prepend(value T) {
 // InsertAt agrega un nuevo nodo, con el valor recibido,
 // en la posición recibida.
 // Si la posición es inválida, no hace nada
+// O(n)
 func (l *LinkedList[T]) InsertAt(value T, position int) {
 	if position < 0 {
 		return
@@ -83,6 +90,7 @@ func (l *LinkedList[T]) InsertAt(value T, position int) {
 }
 
 // Remove elimina el primer nodo que contenga el valor recibido
+// O(n)
 func (l *LinkedList[T]) Remove(value T) {
 	if l.head == nil {
 		return // no hay nada que eliminar
@@ -104,6 +112,7 @@ func (l *LinkedList[T]) Remove(value T) {
 // String devuelve una representación en cadena de la lista
 // en el formato [1 2 3].
 // Se puede usar para imprimir la lista con fmt.Println
+// O(n)
 func (l *LinkedList[T]) String() string {
 	if l.head == nil {
 		return "[]"
@@ -123,6 +132,7 @@ func (l *LinkedList[T]) String() string {
 
 // Search busca el primer nodo que contenga el valor recibido
 // y devuelve su posición en la lista o -1 si no lo encuentra
+// O(n)
 func (l *LinkedList[T]) Search(value T) int {
 	if l.head == nil {
 		return -1
@@ -141,6 +151,7 @@ func (l *LinkedList[T]) Search(value T) int {
 
 // Get devuelve el valor del nodo en la posición recibida
 // o un valor nulo si la posición es inválida
+// O(n)
 func (l *LinkedList[T]) Get(position int) (T, error) {
 	if l.head == nil {
 		var t T
@@ -159,6 +170,7 @@ func (l *LinkedList[T]) Get(position int) (T, error) {
 }
 
 // Size devuelve la cantidad de nodos en la lista
+// O(n)
 func (l *LinkedList[T]) Size() int {
 	if l.head == nil {
 		return 0
@@ -170,33 +182,4 @@ func (l *LinkedList[T]) Size() int {
 		position++
 	}
 	return position
-}
-
-// Iter devuelve un Iterator sobre la lista
-func (l *LinkedList[T]) Iter() *Iterator[T] {
-	return &Iterator[T]{current: l.head}
-}
-
-/************************************************************/
-// Iterator es un Iterator sobre la lista enlazada
-// current apunta al nodo actual
-type Iterator[T comparable] struct {
-	current *node[T]
-}
-
-// Next devuelve el siguiente valor de la lista
-// y un booleano que indica si hay más valores
-func (i *Iterator[T]) Next() (T, error) {
-
-	if !i.HasNext() {
-		var t T
-		return t, errors.New("No hay más elementos")
-	}
-	value := i.current.value
-	i.current = i.current.next
-	return value, nil
-}
-
-func (i *Iterator[T]) HasNext() bool {
-	return i.current != nil
 }
