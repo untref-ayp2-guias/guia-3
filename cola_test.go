@@ -1,10 +1,12 @@
 package guia3
 
-import (
-	"testing"
-)
+import "testing"
+
 func TestQueue(t *testing.T) {
 	q := NewCola[int]()
+	if q == nil {
+		t.Fatal("La cola no puede ser nula")
+	}
 
 	q.Enqueue(1)
 	q.Enqueue(2)
@@ -33,6 +35,9 @@ func TestQueue(t *testing.T) {
 
 func TestEmptyQueue(t *testing.T) {
 	q := NewCola[int]()
+	if q == nil {
+		t.Fatal("La cola no puede ser nula")
+	}
 
 	if !q.IsEmpty() {
 		t.Error("La cola debería estar vacía")
@@ -49,6 +54,9 @@ func TestEmptyQueue(t *testing.T) {
 
 func TestFront(t *testing.T) {
 	q := NewCola[int]()
+	if q == nil {
+		t.Fatal("La cola no puede ser nula")
+	}
 
 	q.Enqueue(1)
 	q.Enqueue(2)

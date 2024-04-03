@@ -1,18 +1,14 @@
 package guia3
 
-import (
-	"cmp"
-	"errors"
+import "github.com/untref-ayp2/data-structures/types"
 
-	sl "github.com/untref-ayp2/data-structures/lists/single-linked-list"
-)
-
-type Pila[T cmp.Ordered] struct {
+type Pila[T types.Ordered] struct {
 	// Implementar
 }
 
-func NewPila[T cmp.Ordered]() *Pila[T] {
+func NewPila[T types.Ordered]() *Pila[T] {
 	// Implementar
+	return nil
 }
 
 func (p *Pila[T]) Push(dato T) {
@@ -21,14 +17,17 @@ func (p *Pila[T]) Push(dato T) {
 
 func (p *Pila[T]) Pop() (T, error) {
 	// Implementar
+	var x T
+	return x, nil
 }
 
 func (p *Pila[T]) Top() (T, error) {
 	// Implementar
+	var x T
+	return x, nil
 }
 
 func (p *Pila[T]) IsEmpty() bool {
 	// Implementar
+	return false
 }
-
-

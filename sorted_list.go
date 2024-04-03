@@ -1,15 +1,16 @@
 package guia3
 
 import (
-	"cmp"
-	dl "github.com/untref-ayp2/data-structures/lists/double-linked-list"
+	dl "github.com/untref-ayp2/data-structures/lists/double_linked_list"
+	"github.com/untref-ayp2/data-structures/types"
 )
+
 // Lista ordenada de forma ascendente
-type SortedList[T cmp.Ordered] struct {
+type SortedList[T types.Ordered] struct {
 	lista *dl.DoubleLinkedList[T]
 }
 
-func NewList[T cmp.Ordered]() *SortedList[T] {
+func NewList[T types.Ordered]() *SortedList[T] {
 	return &SortedList[T]{dl.NewList[T]()}
 }
 

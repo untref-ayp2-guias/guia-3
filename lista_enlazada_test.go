@@ -1,8 +1,6 @@
 package guia3
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestNewList(t *testing.T) {
 	list := NuevaLista[int]()

@@ -1,8 +1,6 @@
 package guia3
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestSortedList(t *testing.T) {
 	sl := NewList[int]()
@@ -22,5 +20,5 @@ func TestSortedList(t *testing.T) {
 		}
 		nodo = nodo.Next()
 	}
-	
+
 }

@@ -1,29 +1,32 @@
 package guia3
 
-import (
-	"cmp"
-)
+import "github.com/untref-ayp2/data-structures/types"
 
-type Nodo[T cmp.Ordered] struct {
+type Nodo[T types.Ordered] struct {
 	dato T
 	sig  *Nodo[T]
 	prev *Nodo[T]
 }
 
-func NuevoNodo[T cmp.Ordered](dato T) *Nodo[T] {
+func NuevoNodo[T types.Ordered](dato T) *Nodo[T] {
 	// Implementar
+	return nil
 }
 
 func (n *Nodo[T]) Data() T {
 	// Implementar
+	var x T
+	return x
 }
 
 func (n *Nodo[T]) Next() *Nodo[T] {
 	// Implementar
+	return nil
 }
 
 func (n *Nodo[T]) Prev() *Nodo[T] {
 	// Implementar
+	return nil
 }
 
 func (n *Nodo[T]) SetData(dato T) {
@@ -57,4 +60,3 @@ func (n *Nodo[T]) RemoveNext() {
 func (n *Nodo[T]) RemovePrev() {
 	// Implementar
 }
-

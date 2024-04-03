@@ -1,18 +1,16 @@
 package guia3
 
-import (
-	"cmp"
-)
+import "github.com/untref-ayp2/data-structures/types"
 
 // ListaEnlazada es un lista enlazada simple con nodo ficticio
-type ListaEnlazada[T cmp.Ordered] struct {
-	cabeza *Nodo[T]
-	cola  *Nodo[T]
+type ListaEnlazada[T types.Ordered] struct {
+	cabeza  *Nodo[T]
+	cola    *Nodo[T]
 	tamanio int
 }
 
 // NuevaLista crea una nueva lista enlazada
-func NuevaLista[T cmp.Ordered]() *ListaEnlazada[T] {
+func NuevaLista[T types.Ordered]() *ListaEnlazada[T] {
 	var dato T
 	n1 := NuevoNodo[T](dato)
 	n2 := NuevoNodo[T](dato)
@@ -109,4 +107,3 @@ func (l *ListaEnlazada[T]) Clear() {
 	l.cola = l.cabeza
 	l.tamanio = 0
 }
-

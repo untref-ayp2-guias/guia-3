@@ -1,10 +1,12 @@
 package guia3
 
-import (
-	"testing"
-)
+import "testing"
+
 func TestPushPop(t *testing.T) {
 	p := NewPila[int]()
+	if p == nil {
+		t.Fatal("La pila no puede ser nula")
+	}
 
 	p.Push(1)
 	p.Push(2)
