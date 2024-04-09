@@ -103,7 +103,7 @@ func (l *ListaEnlazada[T]) Find(dato T) *Nodo[T] {
 
 // Clear elimina todos los nodos de la lista
 func (l *ListaEnlazada[T]) Clear() {
-	l.cabeza.SetNext(nil)
-	l.cola = l.cabeza
+	l.cabeza.SetNext(l.cola)
+	l.cola.SetPrev(l.cabeza)
 	l.tamanio = 0
 }
